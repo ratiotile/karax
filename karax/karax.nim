@@ -1,6 +1,6 @@
 ## Karax -- Single page applications for Nim.
 
-import kdom, vdom, jstrutils, compact, jdict, vstyles
+import kdom, vdom, jstrutils, compact, jdict, vstyles, router
 
 export kdom.Event, kdom.Blob
 
@@ -26,9 +26,6 @@ type
     parent, current: Node
 
 type
-  RouterData* = ref object ## information that is passed to the 'renderer' callback
-    hashPart*: cstring     ## the hash part of the URL for routing.
-
   KaraxInstance* = ref object ## underlying karax instance. Usually you don't have
                               ## know about this.
     rootId: cstring not nil
